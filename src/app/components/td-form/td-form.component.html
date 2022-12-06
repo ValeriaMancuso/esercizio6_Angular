@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>TD form hero</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form (ngSubmit)="submit(form)" #form="ngForm">
+        <div ngModelGroup="hero" id="hero" #hero="ngModelGroup">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" [ngModel]="heroForm.nome" name="nome" class="form-control" required
+              #nome="ngModel">
+            <p *ngIf="nome.invalid && nome.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+          <div class="form-group">
+            <label for="alterEgo">Alter Ego</label>
+            <input type="text" id="alterEgo" [ngModel]="heroForm.alterEgo" name="alterEgo" class="form-control" required
+              #alterEgo="ngModel">
+            <p *ngIf="alterEgo.invalid && alterEgo.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+          <div class="form-group">
+            <label for="superPotere">Super Potere</label>
+            <select class="form-select" id="superPotere" [ngModel]="heroForm.superPotere" name="secret"
+              aria-label="Default select example" required #superPotere="ngModel">
+              <option value="forza">Forza</option>
+              <option value="fulmini">Fulmini</option>
+              <option value="teletrasporto">Teletrasporto</option>
+            </select>
+            <p *ngIf="superPotere.invalid && superPotere.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+          <div class="form-group">
+            <label for="nemico">Nemico</label>
+            <input type="text" id="nemico" [ngModel]="heroForm.nemico" ngModel maxlength="10" name="nemico" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="pianeta">Pianeta</label>
+            <input type="text" id="pianeta" [ngModel]="heroForm.pianeta" ngModel minlength="5" name="pianeta" class="form-control" required
+              #pianeta="ngModel">
+            <p *ngIf="pianeta.invalid && pianeta.touched"><strong>Questo campo è obbligatorio</strong></p>
+          </div>
+          <div class="form-group">
+            <label for="debolezza">Debolezza</label>
+            <input type="text" id="debolezza" [ngModel]="heroForm.debolezza" name="alterEgo" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">Crea</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
